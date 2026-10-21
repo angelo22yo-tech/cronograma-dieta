@@ -58,6 +58,7 @@ h2{font-size:1rem;color:var(--mut);margin:20px 4px 8px;text-transform:uppercase;
 <div class="card next" id="nx"></div>
 <h2>Cronograma de hoje</h2>
 <div id="list"></div>
+<button id="upd" style="display:block;margin:20px auto 8px;padding:12px 22px;border-radius:999px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:1rem">↻ Atualizar aplicativo</button>
 </main>
 <script>
 var P=[
@@ -103,6 +104,18 @@ function render(){
 }
 render();setInterval(render,1000);
 </script>
-<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');</script>
+<script>
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+document.getElementById('upd').onclick = async function () {
+  this.textContent = 'Atualizando...';
+  try {
+    var r = await navigator.serviceWorker.getRegistrations();
+    for (var x of r) await x.unregister();
+    var k = await caches.keys();
+    for (var n of k) await caches.delete(n);
+  } catch (e) {}
+  location.reload();
+};
+</script>
 </body>
 </html>

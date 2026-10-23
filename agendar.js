@@ -1,5 +1,5 @@
 const TOPIC = process.env.NTFY_TOPIC;
-const DIAS_CULTO = [];
+const DIAS_CULTO = [3, 6, 0];
 
 const CASA = [
 ["00:00","🛌 Hora de dormir","Cama inclinada em 15 cm, deitada do lado esquerdo."],

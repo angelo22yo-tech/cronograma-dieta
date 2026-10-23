@@ -1,0 +1,12 @@
+name: Agendar avisos
+on:
+  schedule:
+    - cron: "0 0 * * *"
+jobs:
+  agendar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: node agendar.js
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}

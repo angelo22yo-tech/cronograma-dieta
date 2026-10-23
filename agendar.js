@@ -43,20 +43,12 @@ const CULTO = [
 ];
 
 (async () => {
-  const hoje = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date());
-  const d = new Date(hoje + "T12:00:00-03:00");
-  d.setUTCDate(d.getUTCDate() + 1);
-  const amanha = d.toISOString().slice(0, 10);
-  const lista = DIAS_CULTO.includes(d.getUTCDay()) ? CULTO : CASA;
-  console.log("Agendando", amanha, lista === CULTO ? "(culto)" : "(em casa)");
-  for (const [hora, title, message] of lista) {
-    const ts = Math.floor(new Date(amanha + "T" + hora + ":00-03:00").getTime() / 1000);
-    if (ts * 1000 < Date.now() + 30000) continue;
+  if (process.env.TESTE) {
     const r = await fetch("https://ntfy.sh/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ topic: TOPIC, title, message, priority: 4, delay: String(ts) })
+      body: JSON.stringify({ topic: TOPIC, title: "✅ Teste do GitHub", message: "Se você leu isto, os avisos funcionam.", priority: 4 })
     });
-    console.log(hora, r.status);
-  }
-})();
+    console.log("Teste:", r.status);
+    return;
+  })();

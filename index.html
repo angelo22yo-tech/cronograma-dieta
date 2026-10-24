@@ -97,9 +97,9 @@ var CULTO=[
 ["15:00","16:00","water","💧","Hidratação da tarde","400 ml de água pura","Goles calmos e distribuídos ao longo desta hora."],
 ["16:00","16:15","prep","⏳","Prepare o lanche","Faltam poucos minutos","Sem líquidos. Hora de se organizar para o lanche."],
 ["16:15","16:30","eat","🍌","Lanche da tarde","1 torrada + 1 banana-prata amassada com 1 colher (sobremesa) de farelo de aveia + 240 ml de chá de camomila ou erva-doce morno","Mastigar muito bem. Estritamente proibido suco ou café."],
-["16:30","17:30","fast","🚫","Jejum de líquidos","Zero água","Intervalo antes do jantar precoce."],
-["17:30","18:00","eat","🍽️","Jantar precoce (antes do culto)","Prato raso: arroz + feijão seco + 1 ovo cozido amassado + alface","Comer antes de sair de casa. ZERO LÍQUIDOS."],
-["18:00","21:30","church","⛪","Horário do culto","Jejum (no máximo 1 gole de água se tossir)","Ficar em pé ou sentada na igreja ajuda a digestão, com a ajuda da gravidade."],
+["16:30","18:30","fast","🚫","Jejum de líquidos","Zero água","Intervalo antes do jantar precoce."],
+["18:30","19:00","eat","🍽️","Jantar precoce (antes do culto)","Prato raso: arroz + feijão seco + 1 ovo cozido amassado + alface","Comer antes de sair de casa. ZERO LÍQUIDOS."],
+["19:00","21:30","church","⛪","Horário do culto","Jejum (no máximo 1 gole de água se tossir)","Ficar em pé ou sentada na igreja ajuda a digestão, com a ajuda da gravidade."],
 ["21:30","22:00","eat","🥣","Gel de aveia noturno (na chegada)","100 ml de água morna + 1 colher (sopa) de farelo","Preparar na panela assim que chegar em casa. Leve, e protege o esôfago durante a madrugada."],
 ["22:00","24:00","fast","🚫","Jejum total","Zero água e zero comida","Absolutamente nada entra. Se a boca secar perto da meia-noite, fazer apenas bochecho e cuspir."]
 ].map(function(a){function m(t){var x=t.split(":");return +x[0]*60+ +x[1]}return{s:m(a[0]),e:m(a[1]),st:a[0],et:a[1]=="24:00"?"00:00":a[1],t:a[2],i:a[3],n:a[4],q:a[5],d:a[6]}});
